@@ -1,6 +1,8 @@
 package com.yllu.oath2project.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.provider.ClientDetails;
 
@@ -11,7 +13,9 @@ import java.util.Map;
 import java.util.Set;
 
 @Entity
-@Data
+@Table(name = "client")
+@NoArgsConstructor
+@Getter
 public class Client implements ClientDetails {
 
     @Id
@@ -63,7 +67,7 @@ public class Client implements ClientDetails {
 
     @Override
     public Set<String> getRegisteredRedirectUri() {
-        return null;
+        return Set.of("http://localhost:7000");
     }
 
     @Override
